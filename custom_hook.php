@@ -217,6 +217,7 @@ function saml_hook_get_course_info($course) {
     // $regs[7] = $prefix.$data[1]; 
     // Si no queremos agrupar a los alumnos de diferentes asignaturas que están matriculados en el mismo grupo
     $regs[7] = $prefix.$course_id;
+    $regs[3] =  $data[0].'-'.$regs[7];
   }
 
 
