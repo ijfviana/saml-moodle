@@ -230,6 +230,19 @@ function saml_hook_get_course_info($course) {
   else{
   	return $regs;
   }
+	
+  // generamos atributo para appcrue
+
+  list($crue,$trash) = explode('@', $saml_attributes['eduPersonPrincipalName'][0]);
+
+  if (isset($saml_attributes['eduPersonAffiliation']) && $saml_attributes['eduPersonAffiliation'][0] == "student")
+  {
+      $crue_new=str_replace ( ".alu" , "" , $crue );
+  }
+  else
+      $crue_new=$crue;
+
+  $saml_attributes['appCrueID']=array($crue_new);
 }
 
 
